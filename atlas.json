@@ -1,22 +1,14 @@
 {
   "files": [
-    "cover.html",
-    "01-titlepage.html",
-    "02-copyright.html",
-    "03-toc.html",
-    "04-preface.html",
-    "05-chapter.html",
-    "06-appendix.html"
+    "what-is-a-beat.html"
   ],
   "formats": {
     "pdf": {
       "version": "web",
       "toc": true
     },
-    "epub": {
-    },
-    "mobi": {
-    },
+    "epub": {},
+    "mobi": {},
     "html": {
       "toc": true
     }
