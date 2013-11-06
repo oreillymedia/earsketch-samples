@@ -6,6 +6,7 @@
   "formats": {
     "pdf": {
       "version": "web",
+      "index": true,
       "toc": true
     },
     "epub": {},
