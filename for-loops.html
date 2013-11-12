@@ -62,7 +62,7 @@ range(10,0,3)</pre>
 
 <p>The&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function is important within the use of loops because it provides a range of numbers for the loop to iterate through. Let&rsquo;s look at how the range function can be used with loops by reconsidering the problem presented at the beginning of this section: place a rhythm on track 1 of an EarSketch project for 8 measures.</p>
 
-<pre data-type="programlisting">
+<pre data-original-title="" data-type="programlisting" title="">
 from earsketch import *
 
 #setup
@@ -71,7 +71,7 @@ setTempo(120)
 
 #variables
 drum = ELECTRO_DRUM_MAIN_BEAT_008
-beat = "0-00-00-0+++0+0+"
+beat = &quot;0-00-00-0+++0+0+&quot;
 
 # using iteration instead of repeating similar lines of code
 for measure in range(1, 9):
@@ -80,6 +80,42 @@ for measure in range(1, 9):
 #finish
 finish()
 </pre>
+
+<p>The variable&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">measure</code>&nbsp;is the&nbsp;<strong>index variable</strong>&nbsp;for the loop. As the loop iterates, or executes the statements inside the loop,&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">measure</code>&nbsp;will be assigned numbers from 1 through 8, based on the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function.</p>
+
+<p>As&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">measure</code>&nbsp;increases, so does the location value within the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">makeBeat()</code>&nbsp;function that places your rhythm onto the timeline in Reaper. This loop will effectively place one rhythm on the first 8 measures of track 1. Compare this code with the code at the beginning of this section &mdash; both accomplish the same task, but the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loop makes the code significantly shorter and easier to read.</p>
+
+<section data-type="sect1">
+<h1>Fills</h1>
+
+<p>Fills are components in music that can add some excitement to repetitive lines of music. This is a technique that is frequently implemented within drum tracks. For instance, there might be a repetitive drum beat like the one in our&nbsp;<a href="http://earsketch.gatech.edu/learning/for-loops/for-loops" style="color: rgb(33, 50, 209); font-weight: bold;" title="For Loops">previous example</a>. In order to make this repetitive loop more exciting, we might add a different beat on every fourth measure. This would create more interesting music where we have three measures of a consistent rhythm punctuated by some different rhythm.</p>
+
+<p>In order to create a track with a consistent beat and a fill, we will use our knowledge of&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loops and the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range</code>&nbsp;function. We will make use of the version of the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range</code>&nbsp;function that has three parameters (start, end, increment value) and a&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loops to accomplish our task.</p>
+
+<pre data-type="programlisting">
+from earsketch import *
+
+init()
+setTempo(120)
+
+beatPattern = '0-0-0-000+++0-0-'
+fillPattern = '0++00++00+0+0000'
+
+drum = ELECTRO_DRUM_MAIN_BEAT_001
+
+for counter in range(1, 13, 4):
+    # three measures of a standard pattern
+    makeBeat(drum, 1, counter,  beatPattern)
+    makeBeat(drum, 1, counter + 1, beatPattern)
+    makeBeat(drum, 1, counter + 2, beatPattern)
+    # one measure of a fill pattern
+    makeBeat(drum, 1, counter + 3, fillPattern)
+
+finish()
+</pre>
+
+<p>&nbsp;</p>
+</section>
 
 <p>&nbsp;</p>
 </section>
