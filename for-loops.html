@@ -92,7 +92,7 @@ finish()
 
 <p>In order to create a track with a consistent beat and a fill, we will use our knowledge of&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loops and the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range</code>&nbsp;function. We will make use of the version of the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range</code>&nbsp;function that has three parameters (start, end, increment value) and a&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loops to accomplish our task.</p>
 
-<pre data-original-title="" data-type="programlisting" title="">
+<pre data-code-language="python" data-original-title="" data-type="programlisting" title="">
 from earsketch import *
 
 init()
@@ -131,6 +131,23 @@ finish()
 <div class="post-2453 post type-post status-publish format-standard hentry category-conditionals category-for-loops category-learning odd" id="post-2453">
 <div class="post-headline">&nbsp;</div>
 </div>
+</section>
+
+<section data-type="sect1">
+<h1>Conditionals</h1>
+
+<p>Often, we will want the computer to be able to compare two values and perform an action based on the relationship between those two values. For example, if a measure number is divisible by 2 (i.e., if it&rsquo;s an even measure), we might want to add percussion to the measure. Otherwise, we might want to add guitars to that measure. There are two steps in this process:</p>
+
+<ul>
+	<li><strong>Check</strong>&nbsp;whether a variable has a particular relationship to a value or another variable, and</li>
+	<li><strong>Perform an action</strong>&nbsp;(or a series of actions, or no action) based on the result of this check.</li>
+</ul>
+
+<p>These two steps combine to form a&nbsp;<strong>conditional</strong>&nbsp;in computer programming. &nbsp;This name comes from the idea that &nbsp;the first step involves the computer checking whether or not a certain condition has been met. A conditional tells the computer to perform an action if the condition is met, and to perform a separate action if the condition is not met. (Keep in mind that either one of these actions can be to do nothing at all.)</p>
+
+<p>We use conditionals in our everyday lives. Consider grocery shopping &ndash; how do you know whether or not you should purchase a carton of milk? Before you go shopping, you&nbsp;<strong>check</strong>your fridge to see if you already have milk. If you don&rsquo;t, then you buy some at the store; if you do, then you don&rsquo;t buy any. In this case, the condition you are checking is whether or not you have milk in your fridge, and the action you are performing is buying milk at the store.</p>
+
+<p>The milk example illustrates an important point about conditionals &ndash; they can be written as &ldquo;if-then&rdquo; statements. For this example, the conditional would be phrased as: &ldquo;If there is no milk in the fridge, then you should buy some at the store.&rdquo; In programming, the &ldquo;if&rdquo; part of the conditional will typically involve a comparison. The &ldquo;then&rdquo; part is written below the &ldquo;if&rdquo; part and is always indented; if there are multiple actions to be performed within the &ldquo;then&rdquo; part, they should all be indented. Consider the following code:</p>
 </section>
 
 <p>&nbsp;</p>
