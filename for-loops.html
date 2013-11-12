@@ -172,18 +172,37 @@ if checkValue == 1:
 <p>Notice how the &ldquo;if&rdquo; statement in line 2 compares two values using the &ldquo;==&rdquo; sign (also called a &ldquo;double equals&rdquo; sign); this is different than the single &ldquo;=&rdquo; sign we use when<a data-original-title="Intro to Music Programming in EarSketch: Variables" href="http://earsketch.gatech.edu/learning/intro-to-music-programming-in-earsketch/variables" style="color: rgb(33, 50, 209); font-weight: bold;" title="">assigning variables</a>. When you see the &ldquo;==&rdquo; sign, it means the computer is performing a comparison. Other comparisons can be used in the &ldquo;if&rdquo; part of the conditional: greater than (&gt;), less than (&lt;), greater than or equal to (&gt;=), less than or equal to (&gt;=), and not equal to (!=). For example, if the second line in the previous example were changed to</p>
 
 <pre data-code-language="python" data-original-title="" data-type="programlisting" title="">
-if checkValue >= 0:
+if checkValue &gt;= 0:
 </pre>
 
+<p>the &ldquo;then&rdquo; part would execute as long as&nbsp;<code>checkValue</code>&nbsp;was greater than or equal to 0. Additionally, multiple checks can be performed in the &ldquo;if&rdquo; part. An &ldquo;or&rdquo; operator causes the &ldquo;then&rdquo; part to execute if any of the listed conditions are met; an &ldquo;and&rdquo; operator causes the &ldquo;then&rdquo; part to execute only if all of the listed conditions are met. For example, changing the line to&nbsp;</p>
 
 <pre data-code-language="python" data-original-title="" data-type="programlisting" title="">
-if checkValue < 2 or checkValue > 5:
+if checkValue &lt; 2 or checkValue &gt; 5:
 </pre>
 
-
+<p>adds drums to track one as long as&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">checkValue</code>&nbsp;is less than 2 or greater than 5. If instead we changed the line to</p>
 
 <pre data-code-language="python" data-original-title="" data-type="programlisting" title="">
-if checkValue > 0 and checkValue < 4:
+if checkValue &gt; 0 and checkValue &lt; 4:
+</pre>
+
+<p>drums would be added only if&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">checkValue</code>&nbsp;fell between 0 and 4.</p>
+
+<p>Now, try running the following code and see what happens:</p>
+
+<pre data-code-language="python" data-original-title="" data-type="programlisting" title="">
+from earsketch import *
+
+init()
+setTempo(208)
+
+# uses an "if statement" to place a synth sound on every even measure of track 1 from measures 1 through 8
+for measure in range(1,9):
+    if measure % 2 == 0:
+        fitMedia(EIGHT_BIT_ATARI_SYNTH_003, 1, measure, measure+1)
+
+finish()
 </pre>
 
 <p>&nbsp;</p>
