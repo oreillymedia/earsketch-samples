@@ -1,4 +1,64 @@
 <section data-type="chapter">
-<h1>This Is a Heading</h1>
-<p>This is some text.</p>
+<h1>For Loops</h1>
+
+<p>There are many programming situations where you may want to have a section of code execute several times. For instance, let&rsquo;s say that we want to have a single, one measure rhythm play on track 1 for 8 measures. At first, we might take this approach to the problem:</p>
+
+<pre data-original-title="" data-type="programlisting" title="">
+from earsketch import *
+init()
+setTempo(120)
+
+beat = &quot;0-00-00-0+++0+0+&quot;
+drum = ELECTRO_DRUM_MAIN_BEAT_008
+
+makeBeat(drum, 1, 1, beat)
+makeBeat(drum, 1, 2, beat)
+makeBeat(drum, 1, 3, beat)
+makeBeat(drum, 1, 4, beat)
+makeBeat(drum, 1, 5, beat)
+makeBeat(drum, 1, 6, beat)
+makeBeat(drum, 1, 7, beat)
+makeBeat(drum, 1, 8, beat)
+
+finish()
+</pre>
+
+<p>This will yield the desired results. However, there&rsquo;s a sign that there is a better way of doing things here&hellip; the code is very repetitive and difficult to read. Because programmers are always looking for simpler and clearer ways of representing common situations, there are techniques to accomplish the same thing while typing less. In this case, it would be much simpler to use a&nbsp;<strong><code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loop</strong>. The&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loop structure makes the code appear much more readable and clearly indicates the logic. A&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">for</code>&nbsp;loop works by being given a certain range of values through which to operate. This range is described by the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function.</p>
+
+<p>The&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function most commonly takes in 2 parameters, a starting point and an ending point. The starting point is<strong>&nbsp;inclusive</strong>, meaning that the starting number is included within the range. For example, if the starting number is 1, 1 is included within the range that the function is describing. On the other hand, the ending point parameter is&nbsp;<strong>exclusive</strong>, meaning that the ending number is not included within the range being described by the function. To be familiar with this concept, let&rsquo;s look at an example.</p>
+
+<pre data-original-title="" data-type="programlisting" title="">
+range(1,9)
+</pre>
+
+<p>The above call refers to the range of numbers: 1, 2, 3, 4, 5, 6, 7, 8. Notice that the starting point parameter, 1, is included within this list, whereas the ending point parameter, 9, is not. The starting point is inclusive and the ending point is exclusive.</p>
+
+<pre data-type="programlisting">
+range(3,7)</pre>
+
+<p>This call refers to this range of numbers: 3, 4, 5, 6. Again, 3 is inclusive and 7 is exclusive.</p>
+
+<p>The&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function can also be implemented with only 1 parameter. If given a single parameter,&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;will provide a range from 0 to that number. Remember, the ending point (the single parameter that was passed in) is still exclusive. Therefore, the following function call yields the range 0, 1, 2, 3, 4:</p>
+
+<div class="syntaxhighlighter  " id="highlighter_977923">
+<div class="lines" style="margin: 0px !important; padding: 0px !important; border: 0px !important; outline: 0px !important; background-image: none !important; float: none !important; vertical-align: baseline !important; position: static !important; left: auto !important; top: auto !important; right: auto !important; bottom: auto !important; height: auto !important; width: auto !important; line-height: 1.1em !important; font-size: 1em !important; direction: ltr !important;">
+<div class="line alt1" style="margin: 0px !important; padding: 0px !important; border: 0px !important; outline: 0px !important; background-image: none !important; float: none !important; vertical-align: baseline !important; position: static !important; left: auto !important; top: auto !important; right: auto !important; bottom: auto !important; height: auto !important; width: auto !important; line-height: 1.1em !important; font-size: 1em !important; direction: ltr !important;">
+<pre data-original-title="" data-type="programlisting" title="">
+range(5)</pre>
+</div>
+</div>
+</div>
+
+<p>Additionally,&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;can be used with three parameters. In this case, the first two parameters are the starting and ending points and the third parameter is a step variable. The step variable tells the range on what interval you want it to work. You can use the third parameter to create ranges of numbers that increase by two or four or any other number. For example, the following function call yields the range 0, 3, 6, 9:</p>
+
+<div class="syntaxhighlighter  " id="highlighter_261776">
+<div class="lines" style="margin: 0px !important; padding: 0px !important; border: 0px !important; outline: 0px !important; background-image: none !important; float: none !important; vertical-align: baseline !important; position: static !important; left: auto !important; top: auto !important; right: auto !important; bottom: auto !important; height: auto !important; width: auto !important; line-height: 1.1em !important; font-size: 1em !important; direction: ltr !important;">
+<div class="line alt1" style="margin: 0px !important; padding: 0px !important; border: 0px !important; outline: 0px !important; background-image: none !important; float: none !important; vertical-align: baseline !important; position: static !important; left: auto !important; top: auto !important; right: auto !important; bottom: auto !important; height: auto !important; width: auto !important; line-height: 1.1em !important; font-size: 1em !important; direction: ltr !important;">
+<pre data-type="programlisting">
+range(10,0,3)</pre>
+</div>
+</div>
+</div>
+
+<p>The&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function is important within the use of loops because it provides a range of numbers for the loop to iterate through. Let&rsquo;s look at how the range function can be used with loops by reconsidering the problem presented at the beginning of this section: place a rhythm on track 1 of an EarSketch project for 8 measures.</p>
 </section>
