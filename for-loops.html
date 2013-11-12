@@ -209,7 +209,21 @@ finish()
 
 <p>It is important to note that adding an audio clip to every other measure can also be accomplished without using conditionals through the use of skip counting, which utilizes the third parameter of the&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function:</p>
 
-<p>&nbsp;</p>
+<pre data-code-language="python" data-original-title="" data-type="programlisting" title="">
+from earsketch import *
+
+init()
+setTempo(208)
+
+# uses skip counting in a &quot;for loop&quot; to place a synth sound on every even measure of track 1 from measures 1 through 8
+for measure in range(2, 9, 2):
+    fitMedia(EIGHT_BIT_ATARI_SYNTH_003, 1, measure, measure+1)
+
+finish()
+</pre>
+
+<p>In the previous examples, we didn&rsquo;t want anything to happen if the condition we were checking was&nbsp;<em>not</em>&nbsp;met. But what if we wanted to do one thing if our conditional statement was met and do something else if it wasn&rsquo;t? We could use an &ldquo;else&rdquo; statement to accomplish this. An &ldquo;else&rdquo; statement functions as part of a conditional; anything within the else statement is executed only if the condition is&nbsp;<em>not</em>&nbsp;met. (In the milk example, since we didn&rsquo;t want anything to happen when the condition was not met &ndash; when we had milk in the fridge &ndash; we did not need an &ldquo;else&rdquo; statement.) Consider the following modification to the previous code example:</p>
+
 
 <pre data-code-language="python" data-original-title="" data-type="programlisting" title="">
 from earsketch import *
@@ -217,13 +231,32 @@ from earsketch import *
 init()
 setTempo(208)
 
-# uses skip counting in a "for loop" to place a synth sound on every even measure of track 1 from measures 1 through 8
-for measure in range(2, 9, 2):
-    fitMedia(EIGHT_BIT_ATARI_SYNTH_003, 1, measure, measure+1)
+# uses an "if statement" to place a synth sound on every even measure of track 1 from measures 1 through 8
+for measure in range(1,9):
+    if measure % 2 == 0:
+        fitMedia(EIGHT_BIT_ATARI_SYNTH_003, 1, measure, measure+1)
+    # uses an "else statement" to place a bass sound on every odd measure of track 1 from measures 1 through 8
+    else:
+        fitMedia(EIGHT_BIT_ATARI_BASSLINE_005, 1, measure, measure+1)
 
 finish()
+
 </pre>
 
+
+<p>We have now added an &ldquo;else statement&rdquo; that will execute if the condition is&nbsp;<em>not</em>&nbsp;met (i.e., if the measure is&nbsp;<em>not</em>&nbsp;even). This means that every odd measure will now contain a bass sound (at measures 1, 3, 5, &amp; 7), while as before, every even measure will contain the synth sound (at measures 2, 4, 6, &amp; 8).</p>
+
+<p><strong>Exercise</strong><br />
+<br />
+See if you can write code that adds a drum beat to every odd measure of track 2 from measures 9 through 16.</p>
+
+<p><strong>Additional Resources</strong><br />
+<br />
+For additional help on conditionals and loops, check out&nbsp;<a href="http://docs.python.org/2/tutorial/controlflow.html" style="color: rgb(33, 50, 209); font-weight: bold;">this</a>&nbsp;tutorial.</p>
+</div>
+</div>
+
+<p>&nbsp;</p>
 </div>
 </div>
 </section>
