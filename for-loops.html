@@ -61,4 +61,25 @@ range(10,0,3)</pre>
 </div>
 
 <p>The&nbsp;<code style="font-family: 'Courier New', Courier, monospace; font-size: 1em;">range()</code>&nbsp;function is important within the use of loops because it provides a range of numbers for the loop to iterate through. Let&rsquo;s look at how the range function can be used with loops by reconsidering the problem presented at the beginning of this section: place a rhythm on track 1 of an EarSketch project for 8 measures.</p>
+
+<pre data-type="programlisting">
+from earsketch import *
+
+#setup
+init()
+setTempo(120)
+
+#variables
+drum = ELECTRO_DRUM_MAIN_BEAT_008
+beat = "0-00-00-0+++0+0+"
+
+# using iteration instead of repeating similar lines of code
+for measure in range(1, 9):
+    makeBeat(drum, 1, measure, beat)
+
+#finish
+finish()
+</pre>
+
+<p>&nbsp;</p>
 </section>
